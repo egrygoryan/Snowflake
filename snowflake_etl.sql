@@ -169,7 +169,7 @@ $$;
 ---> Create a Task to automate the transformation process daily
 CREATE OR REPLACE TASK public.daily_nyc_airbnb_etl
   WAREHOUSE = compute_wh
-  SCHEDULE = 'USING CRON * * * * * UTC' -- run daily at midnight
+  SCHEDULE = 'USING CRON 0 0 * * * UTC' -- run daily at midnight
 AS
   CALL data_transformation();
   CALL check_data_quality();
